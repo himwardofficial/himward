@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>HIMWARD — Toward Jesus.</title>
+
+  <meta name="description" content="Simple, Bible-centered content to help you understand Jesus, the Gospel, and what it means to follow Him.">
+  <meta name="theme-color" content="#F5F1E8">
+
+  <meta property="og:title" content="HIMWARD — Toward Jesus.">
+  <meta property="og:description" content="Simple, Bible-centered content to help you understand Jesus, the Gospel, and what it means to follow Him.">
+  <meta property="og:type" content="website">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --ivory: #F5F1E8;
+      --charcoal: #242522;
+      --warm-gray: #A6A39B;
+      --olive: #69705B;
+      --deep: #171816;
+      --white: #ffffff;
+      --border: rgba(36, 37, 34, 0.14);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--ivory);
+      color: var(--charcoal);
+      font-family: "DM Sans", sans-serif;
+      line-height: 1.7;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1120px, 90%);
+      margin: auto;
+    }
+
+    /* HEADER */
+
+    header {
+      padding: 26px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+    }
+
+    .symbol {
+      width: 38px;
+      height: 38px;
+      position: relative;
+      display: inline-block;
+    }
+
+    .symbol::before,
+    .symbol::after {
+      content: "";
+      position: absolute;
+      background: var(--charcoal);
+      width: 8px;
+      height: 32px;
+      top: 3px;
+    }
+
+    .symbol::before {
+      left: 4px;
+    }
+
+    .symbol::after {
+      right: 4px;
+    }
+
+    .symbol-line {
+      position: absolute;
+      width: 8px;
+      height: 39px;
+      background: var(--charcoal);
+      left: 15px;
+      top: 0;
+      transform: rotate(-38deg);
+      transform-origin: center;
+    }
+
+    .brand-name {
+      font-family: "Playfair Display", serif;
+      font-size: 25px;
+      letter-spacing: 5px;
+    }
+
+    .brand-tag {
+      font-size: 10px;
+      letter-spacing: 2px;
+      color: var(--warm-gray);
+      text-transform: uppercase;
+    }
+
+    nav {
+      display: flex;
+      gap: 28px;
+      font-size: 14px;
+    }
+
+    nav a {
+      transition: opacity .2s ease;
+    }
+
+    nav a:hover {
+      opacity: .55;
+    }
+
+    /* HERO */
+
+    .hero {
+      min-height: 76vh;
+      display: flex;
+      align-items: center;
+      padding: 100px 0;
+    }
+
+    .hero-content {
+      max-width: 850px;
+    }
+
+    .eyebrow {
+      color: var(--olive);
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      font-size: 12px;
+      font-weight: 600;
+      margin-bottom: 25px;
+    }
+
+    h1 {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(58px, 9vw, 110px);
+      font-weight: 500;
+      line-height: .98;
+      letter-spacing: -3px;
+      margin-bottom: 25px;
+    }
+
+    .hero-subtitle {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(25px, 4vw, 42px);
+      line-height: 1.25;
+      max-width: 750px;
+      margin-bottom: 25px;
+    }
+
+    .hero-text {
+      max-width: 650px;
+      color: #66645e;
+      font-size: 17px;
+      margin-bottom: 38px;
+    }
+
+    .direction {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--olive);
+      font-size: 13px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-top: 50px;
+    }
+
+    .direction-line {
+      width: 75px;
+      height: 1px;
+      background: var(--olive);
+      position: relative;
+    }
+
+    .direction-line::after {
+      content: "";
+      position: absolute;
+      right: 0;
+      top: -3px;
+      width: 6px;
+      height: 6px;
+      border-top: 1px solid var(--olive);
+      border-right: 1px solid var(--olive);
+      transform: rotate(45deg);
+    }
+
+    .button {
+      display: inline-block;
+      background: var(--charcoal);
+      color: var(--ivory);
+      padding: 15px 25px;
+      font-size: 13px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      transition: transform .2s ease, opacity .2s ease;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+      opacity: .9;
+    }
+
+    /* SECTIONS */
+
+    section {
+      padding: 100px 0;
+    }
+
+    .section-label {
+      color: var(--olive);
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      font-size: 11px;
+      font-weight: 600;
+      margin-bottom: 15px;
+    }
+
+    h2 {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(38px, 5vw, 58px);
+      font-weight: 500;
+      line-height: 1.1;
+      margin-bottom: 25px;
+    }
+
+    .section-intro {
+      max-width: 650px;
+      color: #66645e;
+      margin-bottom: 55px;
+    }
+
+    /* START HERE */
+
+    .start {
+      background: var(--deep);
+      color: var(--ivory);
+    }
+
+    .start .section-intro {
+      color: #b9b6ae;
+    }
+
+    .start .section-label {
+      color: #aeb59d;
+    }
+
+    .start-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1px;
+      background: rgba(245,241,232,.15);
+    }
+
+    .start-card {
+      padding: 38px;
+      background: var(--deep);
+      min-height: 180px;
+    }
+
+    .start-card span {
+      color: var(--warm-gray);
+      font-size: 12px;
+      letter-spacing: 2px;
+    }
+
+    .start-card h3 {
+      font-family: "Playfair Display", serif;
+      font-size: 25px;
+      font-weight: 500;
+      margin: 15px 0 8px;
+    }
+
+    .start-card p {
+      color: #aaa8a1;
+      font-size: 14px;
+    }
+
+    /* PILLARS */
+
+    .pillars {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 55px 70px;
+    }
+
+    .pillar {
+      border-top: 1px solid var(--border);
+      padding-top: 25px;
+    }
+
+    .pillar-number {
+      color: var(--olive);
+      font-size: 12px;
+      letter-spacing: 2px;
+    }
+
+    .pillar h3 {
+      font-family: "Playfair Display", serif;
+      font-size: 29px;
+      font-weight: 500;
+      margin: 10px 0;
+    }
+
+    .pillar p {
+      color: #696760;
+      font-size: 15px;
+    }
+
+    /* FREE RESOURCE */
+
+    .resource {
+      background: #e9e4d8;
+    }
+
+    .resource-box {
+      max-width: 800px;
+    }
+
+    .resource h2 {
+      max-width: 700px;
+    }
+
+    .resource p {
+      max-width: 650px;
+      color: #62615b;
+      margin-bottom: 30px;
+    }
+
+    /* ABOUT */
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.5fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .about-text {
+      color: #62615b;
+      font-size: 16px;
+    }
+
+    .about-text p + p {
+      margin-top: 20px;
+    }
+
+    /* FOOTER */
+
+    footer {
+      background: var(--deep);
+      color: var(--ivory);
+      padding: 60px 0 30px;
+    }
+
+    .footer-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 40px;
+      padding-bottom: 50px;
+    }
+
+    .footer-brand {
+      font-family: "Playfair Display", serif;
+      font-size: 28px;
+      letter-spacing: 4px;
+    }
+
+    .footer-tagline {
+      color: #aaa8a1;
+      margin-top: 8px;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 25px;
+      color: #aaa8a1;
+      font-size: 13px;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(245,241,232,.12);
+      padding-top: 25px;
+      color: #77756f;
+      font-size: 12px;
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 700px) {
+
+      header {
+        padding: 20px 0;
+      }
+
+      nav {
+        display: none;
+      }
+
+      .hero {
+        min-height: auto;
+        padding: 85px 0;
+      }
+
+      h1 {
+        font-size: 64px;
+      }
+
+      section {
+        padding: 75px 0;
+      }
+
+      .start-grid,
+      .pillars,
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .about-grid {
+        gap: 30px;
+      }
+
+      .footer-top,
+      .footer-bottom {
+        flex-direction: column;
+      }
+
+      .footer-links {
+        flex-wrap: wrap;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+
+  <header>
+    <div class="container nav">
+
+      <a href="#" class="brand">
+
+        <span class="symbol">
+          <span class="symbol-line"></span>
+        </span>
+
+        <span>
+          <span class="brand-name">HIMWARD</span>
+          <span class="brand-tag">Toward Jesus.</span>
+        </span>
+
+      </a>
+
+      <nav>
+        <a href="#start">Start Here</a>
+        <a href="#explore">Explore</a>
+        <a href="#about">About</a>
+      </nav>
+
+    </div>
+  </header>
+
+
+  <!-- HERO -->
+
+  <main>
+
+    <section class="hero">
+      <div class="container">
+
+        <div class="hero-content">
+
+          <div class="eyebrow">
+            HIMWARD
+          </div>
+
+          <h1>Toward Jesus.</h1>
+
+          <div class="hero-subtitle">
+            Simple. Biblical. Christ-centered.
+          </div>
+
+          <p class="hero-text">
+            Simple, Bible-centered content to help you understand Jesus,
+            the Gospel, and what it means to follow Him.
+          </p>
+
+          <a href="#start" class="button">
+            Start Here
+          </a>
+
+          <div class="direction">
+            <span class="direction-line"></span>
+            A journey toward Him
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- START HERE -->
+
+    <section class="start" id="start">
+
+      <div class="container">
+
+        <div class="section-label">
+          Start Here
+        </div>
+
+        <h2>
+          Wherever you are,<br>
+          start from here.
+        </h2>
+
+        <p class="section-intro">
+          You don't need to have everything figured out.
+          HIMWARD exists to help you take the next step toward
+          understanding Jesus and the Gospel.
+        </p>
+
+        <div class="start-grid">
+
+          <a href="#explore" class="start-card">
+            <span>01</span>
+            <h3>I'm new to Christianity.</h3>
+            <p>
+              Start with the basics of who Jesus is and what
+              Christianity actually teaches.
+            </p>
+          </a>
+
+          <a href="#explore" class="start-card">
+            <span>02</span>
+            <h3>I have questions about Jesus.</h3>
+            <p>
+              Explore Scripture, the life of Jesus, His words,
+              His death and His resurrection.
+            </p>
+          </a>
+
+          <a href="#explore" class="start-card">
+            <span>03</span>
+            <h3>I want to understand the Gospel.</h3>
+            <p>
+              Explore grace, sin, repentance, faith,
+              salvation and the cross.
+            </p>
+          </a>
+
+          <a href="#explore" class="start-card">
+            <span>04</span>
+            <h3>I want to follow Jesus.</h3>
+            <p>
+              Discover what prayer, Scripture, obedience,
+              forgiveness and everyday faith look like.
+            </p>
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- EXPLORE -->
+
+    <section id="explore">
+
+      <div class="container">
+
+        <div class="section-label">
+          Explore HIMWARD
+        </div>
+
+        <h2>
+          Four paths.<br>
+          One direction.
+        </h2>
+
+        <p class="section-intro">
+          Everything we create is built around one purpose:
+          helping people understand Jesus and take their next
+          step toward Him.
+        </p>
+
+        <div class="pillars">
+
+          <article class="pillar">
+            <div class="pillar-number">01 — JESUS</div>
+            <h3>Who is Jesus?</h3>
+            <p>
+              His life, His words, His character, His parables,
+              the cross and the resurrection.
+            </p>
+          </article>
+
+          <article class="pillar">
+            <div class="pillar-number">02 — THE GOSPEL</div>
+            <h3>What is the Gospel?</h3>
+            <p>
+              Sin, grace, repentance, faith, salvation and
+              what God has done through Christ.
+            </p>
+          </article>
+
+          <article class="pillar">
+            <div class="pillar-number">03 — BIBLICAL HOPE</div>
+            <h3>Hope for real life.</h3>
+            <p>
+              Fear, suffering, guilt, loneliness, failure,
+              uncertainty and the hope found in Christ.
+            </p>
+          </article>
+
+          <article class="pillar">
+            <div class="pillar-number">04 — FOLLOWING JESUS</div>
+            <h3>What does following Him mean?</h3>
+            <p>
+              Prayer, Scripture, obedience, forgiveness,
+              discipline and everyday Christian life.
+            </p>
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- FREE RESOURCE -->
+
+    <section class="resource">
+
+      <div class="container">
+
+        <div class="resource-box">
+
+          <div class="section-label">
+            Free Resource
+          </div>
+
+          <h2>
+            7 Days to Know Jesus
+          </h2>
+
+          <p>
+            A simple seven-day journey through Scripture designed
+            to help you understand who Jesus is, why the Gospel
+            matters, and what it means to take your next step
+            toward Him.
+          </p>
+
+          <a href="#" class="button">
+            Coming Soon
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ABOUT -->
+
+    <section id="about">
+
+      <div class="container">
+
+        <div class="about-grid">
+
+          <div>
+            <div class="section-label">
+              About HIMWARD
+            </div>
+
+            <h2>
+              Toward Him.
+            </h2>
+          </div>
+
+          <div class="about-text">
+
+            <p>
+              HIMWARD is a Christian digital media brand built
+              around a simple direction: toward Jesus.
+            </p>
+
+            <p>
+              We create simple, Bible-centered content for people
+              who want to know Jesus, understand the Gospel,
+              ask honest questions, or grow in their faith.
+            </p>
+
+            <p>
+              We believe Christian content should be truthful,
+              thoughtful, accessible and centered on Christ —
+              not on hype.
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- FOOTER -->
+
+  <footer>
+
+    <div class="container">
+
+      <div class="footer-top">
+
+        <div>
+          <div class="footer-brand">HIMWARD</div>
+          <div class="footer-tagline">Toward Jesus.</div>
+        </div>
+
+        <div class="footer-links">
+          <a href="#start">Start Here</a>
+          <a href="#explore">Explore</a>
+          <a href="#about">About</a>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+
+        <span>
+          © 2026 HIMWARD. All rights reserved.
+        </span>
+
+        <span>
+          Simple. Biblical. Christ-centered.
+        </span>
+
+      </div>
+
+    </div>
+
+  </footer>
+
+</body>
+    </html>
