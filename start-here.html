@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Start Here — HIMWARD</title>
+
+  <meta name="description" content="A simple place to begin if you want to know Jesus, understand the Gospel, explore Christianity, or grow in your faith.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --ivory: #F5F1E8;
+      --charcoal: #242522;
+      --warm-gray: #A6A39B;
+      --olive: #69705B;
+      --deep: #171816;
+      --border: rgba(36, 37, 34, 0.14);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--ivory);
+      color: var(--charcoal);
+      font-family: "DM Sans", sans-serif;
+      line-height: 1.7;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1050px, 90%);
+      margin: auto;
+    }
+
+    header {
+      padding: 25px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand {
+      font-family: "Playfair Display", serif;
+      font-size: 24px;
+      letter-spacing: 5px;
+    }
+
+    .back {
+      font-size: 13px;
+      color: var(--warm-gray);
+    }
+
+    .hero {
+      padding: 110px 0 90px;
+      max-width: 850px;
+    }
+
+    .eyebrow {
+      color: var(--olive);
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      font-size: 11px;
+      font-weight: 600;
+      margin-bottom: 22px;
+    }
+
+    h1 {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(48px, 7vw, 82px);
+      font-weight: 500;
+      line-height: 1.05;
+      letter-spacing: -2px;
+      margin-bottom: 30px;
+    }
+
+    .hero p {
+      max-width: 700px;
+      font-size: 19px;
+      color: #64625c;
+    }
+
+    .question {
+      margin-top: 35px;
+      padding-left: 20px;
+      border-left: 2px solid var(--olive);
+      font-family: "Playfair Display", serif;
+      font-size: 24px;
+      line-height: 1.4;
+    }
+
+    section {
+      padding: 85px 0;
+    }
+
+    .dark {
+      background: var(--deep);
+      color: var(--ivory);
+    }
+
+    .section-label {
+      color: var(--olive);
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      font-size: 11px;
+      font-weight: 600;
+      margin-bottom: 15px;
+    }
+
+    .dark .section-label {
+      color: #aeb59d;
+    }
+
+    h2 {
+      font-family: "Playfair Display", serif;
+      font-weight: 500;
+      font-size: clamp(36px, 5vw, 55px);
+      line-height: 1.1;
+      margin-bottom: 22px;
+    }
+
+    .intro {
+      max-width: 650px;
+      color: #696760;
+      margin-bottom: 50px;
+    }
+
+    .dark .intro {
+      color: #aaa8a1;
+    }
+
+    .paths {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1px;
+      background: rgba(245,241,232,.14);
+    }
+
+    .path {
+      background: var(--deep);
+      padding: 38px;
+      min-height: 220px;
+      transition: background .2s ease;
+    }
+
+    .path:hover {
+      background: #20211e;
+    }
+
+    .number {
+      color: var(--warm-gray);
+      font-size: 11px;
+      letter-spacing: 2px;
+    }
+
+    .path h3 {
+      font-family: "Playfair Display", serif;
+      font-size: 27px;
+      font-weight: 500;
+      margin: 15px 0 10px;
+    }
+
+    .path p {
+      color: #aaa8a1;
+      font-size: 14px;
+      margin-bottom: 20px;
+    }
+
+    .path-link {
+      color: #c2c5b8;
+      font-size: 12px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    .journey {
+      padding: 90px 0;
+    }
+
+    .steps {
+      display: grid;
+      gap: 0;
+      max-width: 800px;
+    }
+
+    .step {
+      display: grid;
+      grid-template-columns: 70px 1fr;
+      gap: 25px;
+      padding: 30px 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .step-number {
+      color: var(--olive);
+      font-size: 12px;
+      letter-spacing: 2px;
+    }
+
+    .step h3 {
+      font-family: "Playfair Display", serif;
+      font-size: 25px;
+      font-weight: 500;
+      margin-bottom: 7px;
+    }
+
+    .step p {
+      color: #696760;
+      font-size: 15px;
+    }
+
+    .resource {
+      background: #e9e4d8;
+    }
+
+    .resource-box {
+      max-width: 780px;
+    }
+
+    .resource p {
+      max-width: 650px;
+      color: #62615b;
+      margin-bottom: 30px;
+    }
+
+    .button {
+      display: inline-block;
+      background: var(--charcoal);
+      color: var(--ivory);
+      padding: 15px 25px;
+      font-size: 12px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    footer {
+      background: var(--deep);
+      color: var(--ivory);
+      padding: 55px 0 30px;
+    }
+
+    .footer-brand {
+      font-family: "Playfair Display", serif;
+      font-size: 26px;
+      letter-spacing: 4px;
+    }
+
+    .footer-tag {
+      color: #aaa8a1;
+      margin-top: 5px;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(245,241,232,.12);
+      margin-top: 40px;
+      padding-top: 20px;
+      color: #77756f;
+      font-size: 12px;
+    }
+
+    @media (max-width: 700px) {
+
+      .hero {
+        padding: 80px 0 65px;
+      }
+
+      .paths {
+        grid-template-columns: 1fr;
+      }
+
+      .step {
+        grid-template-columns: 45px 1fr;
+        gap: 15px;
+      }
+
+      section {
+        padding: 70px 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="container nav">
+    <a href="index.html" class="brand">HIMWARD</a>
+    <a href="index.html" class="back">← Back to home</a>
+  </div>
+</header>
+
+<main>
+
+  <!-- HERO -->
+
+  <section>
+    <div class="container">
+
+      <div class="hero">
+
+        <div class="eyebrow">
+          Start Here
+        </div>
+
+        <h1>
+          You don't have to have it all figured out.
+        </h1>
+
+        <p>
+          Maybe you're curious about Jesus. Maybe you've been away
+          from God for a long time. Maybe you believe, but still have
+          questions.
+        </p>
+
+        <div class="question">
+          Wherever you are, you can start here.
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- FOUR PATHS -->
+
+  <section class="dark">
+
+    <div class="container">
+
+      <div class="section-label">
+        Find your starting point
+      </div>
+
+      <h2>
+        What are you looking for?
+      </h2>
+
+      <p class="intro">
+        There is no perfect place to begin. Choose the path that
+        best describes where you are right now.
+      </p>
+
+      <div class="paths">
+
+        <article class="path">
+
+          <div class="number">01</div>
+
+          <h3>
+            I want to know Jesus.
+          </h3>
+
+          <p>
+            Start with the person at the center of Christianity.
+            Explore who Jesus is, what He taught, and why His life matters.
+          </p>
+
+          <span class="path-link">
+            Jesus — coming soon
+          </span>
+
+        </article>
+
+
+        <article class="path">
+
+          <div class="number">02</div>
+
+          <h3>
+            I want to understand the Gospel.
+          </h3>
+
+          <p>
+            What is the Gospel? Why do we need it? What do grace,
+            faith, repentance and salvation actually mean?
+          </p>
+
+          <span class="path-link">
+            The Gospel — coming soon
+          </span>
+
+        </article>
+
+
+        <article class="path">
+
+          <div class="number">03</div>
+
+          <h3>
+            I have questions about Christianity.
+          </h3>
+
+          <p>
+            Honest questions are part of the journey. Explore
+            Christianity through Scripture without unnecessary complexity.
+          </p>
+
+          <span class="path-link">
+            Explore questions — coming soon
+          </span>
+
+        </article>
+
+
+        <article class="path">
+
+          <div class="number">04</div>
+
+          <h3>
+            I want to follow Jesus.
+          </h3>
+
+          <p>
+            Learn about prayer, Scripture, obedience, forgiveness
+            and what following Jesus can look like in everyday life.
+          </p>
+
+          <span class="path-link">
+            Following Jesus — coming soon
+          </span>
+
+        </article>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- JOURNEY -->
+
+  <section class="journey">
+
+    <div class="container">
+
+      <div class="section-label">
+        The journey
+      </div>
+
+      <h2>
+        One step at a time.
+      </h2>
+
+      <p class="intro">
+        You don't need to understand everything before taking your
+        next step. The goal isn't to rush. It's to know Jesus.
+      </p>
+
+      <div class="steps">
+
+        <div class="step">
+          <div class="step-number">01</div>
+          <div>
+            <h3>Know who Jesus is.</h3>
+            <p>
+              Begin with the life, words and person of Jesus Christ.
+            </p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-number">02</div>
+          <div>
+            <h3>Understand the Gospel.</h3>
+            <p>
+              See the story of sin, grace, the cross, resurrection,
+              faith and salvation through Scripture.
+            </p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-number">03</div>
+          <div>
+            <h3>Take the next step.</h3>
+            <p>
+              Learn what it means to respond to Jesus and follow Him
+              in everyday life.
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- FREE RESOURCE -->
+
+  <section class="resource">
+
+    <div class="container">
+
+      <div class="resource-box">
+
+        <div class="section-label">
+          Coming soon
+        </div>
+
+        <h2>
+          7 Days to Know Jesus
+        </h2>
+
+        <p>
+          A simple seven-day journey through Scripture to help you
+          understand who Jesus is, why the Gospel matters, and what
+          it means to take your next step toward Him.
+        </p>
+
+        <a href="#" class="button">
+          Coming Soon
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+</main>
+
+
+<footer>
+
+  <div class="container">
+
+    <div class="footer-brand">
+      HIMWARD
+    </div>
+
+    <div class="footer-tag">
+      Toward Jesus.
+    </div>
+
+    <div class="footer-bottom">
+      © 2026 HIMWARD. Simple. Biblical. Christ-centered.
+    </div>
+
+  </div>
+
+</footer>
+
+</body>
+    </html>
