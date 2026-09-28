@@ -17,6 +17,30 @@
     :root {
       --ivory: #F5F1E8;
       --charcoal: #242522;
+      --w<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Start Here — HIMWARD</title>
+
+  <meta name="description" content="A simple place to begin if you want to know Jesus, understand the Gospel, explore Christianity, or grow in your faith.">
+  <meta name="theme-color" content="#F5F1E8">
+
+  <meta property="og:title" content="Start Here — HIMWARD">
+  <meta property="og:description" content="A simple place to begin if you want to know Jesus, understand the Gospel, explore Christianity, or grow in your faith.">
+  <meta property="og:type" content="website">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --ivory: #F5F1E8;
+      --charcoal: #242522;
       --warm-gray: #A6A39B;
       --olive: #69705B;
       --deep: #171816;
@@ -31,12 +55,13 @@
 
     html {
       scroll-behavior: smooth;
+      scroll-padding-top: 90px;
     }
 
     body {
       background: var(--ivory);
       color: var(--charcoal);
-      font-family: "DM Sans", sans-serif;
+      font-family: "Montserrat", sans-serif;
       line-height: 1.7;
     }
 
@@ -50,8 +75,15 @@
       margin: auto;
     }
 
-    header {
-      padding: 25px 0;
+    /* HEADER (same as home) */
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(245, 241, 232, 0.92);
+      -webkit-backdrop-filter: blur(10px);
+      backdrop-filter: blur(10px);
       border-bottom: 1px solid var(--border);
     }
 
@@ -59,18 +91,124 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
+      gap: 30px;
+      padding: 16px 0;
     }
 
     .brand {
-      font-family: "Playfair Display", serif;
-      font-size: 24px;
-      letter-spacing: 5px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
     }
 
-    .back {
-      font-size: 13px;
-      color: var(--warm-gray);
+    .brand-mark {
+      height: 40px;
+      width: auto;
+      flex: none;
+      color: var(--charcoal);
     }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      line-height: 1;
+    }
+
+    .brand-name {
+      font-family: "Playfair Display", serif;
+      font-weight: 500;
+      font-size: 26px;
+      letter-spacing: .32em;
+      margin-right: -.32em;
+    }
+
+    .brand-tag {
+      font-family: "Montserrat", sans-serif;
+      font-size: 11px;
+      letter-spacing: .2em;
+      margin-right: -.2em;
+      margin-top: 8px;
+      color: #55534d;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 34px;
+      font-size: 14px;
+    }
+
+    .nav-links a:not(.button) {
+      padding: 6px 0;
+      background: linear-gradient(var(--charcoal), var(--charcoal)) left bottom / 0 1px no-repeat;
+      transition: background-size .25s ease;
+    }
+
+    .nav-links a:not(.button):hover,
+    .nav-links a:not(.button):focus-visible,
+    .nav-links a[aria-current="page"] {
+      background-size: 100% 1px;
+    }
+
+    a:focus-visible,
+    button:focus-visible {
+      outline: 2px solid var(--olive);
+      outline-offset: 4px;
+    }
+
+    .nav-toggle {
+      display: none;
+      width: 44px;
+      height: 44px;
+      background: none;
+      border: 0;
+      cursor: pointer;
+      position: relative;
+      color: var(--charcoal);
+    }
+
+    .nav-toggle span {
+      position: absolute;
+      left: 11px;
+      right: 11px;
+      height: 1.5px;
+      background: currentColor;
+      transition: transform .25s ease, opacity .2s ease;
+    }
+
+    .nav-toggle span:nth-child(1) { top: 16px; }
+    .nav-toggle span:nth-child(2) { top: 21px; }
+    .nav-toggle span:nth-child(3) { top: 26px; }
+
+    .nav-toggle[aria-expanded="true"] span:nth-child(1) { transform: translateY(5px) rotate(45deg); }
+    .nav-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+    .nav-toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-5px) rotate(-45deg); }
+
+    /* BUTTON */
+
+    .button {
+      display: inline-block;
+      background: var(--charcoal);
+      color: var(--ivory);
+      padding: 15px 25px;
+      font-size: 12px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      transition: transform .2s ease, opacity .2s ease;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+      opacity: .9;
+    }
+
+    .button-sm {
+      padding: 11px 20px;
+      font-size: 12px;
+    }
+
+    /* HERO */
 
     .hero {
       padding: 110px 0 90px;
@@ -88,7 +226,7 @@
 
     h1 {
       font-family: "Playfair Display", serif;
-      font-size: clamp(48px, 7vw, 82px);
+      font-size: clamp(44px, 7vw, 82px);
       font-weight: 500;
       line-height: 1.05;
       letter-spacing: -2px;
@@ -97,7 +235,7 @@
 
     .hero p {
       max-width: 700px;
-      font-size: 19px;
+      font-size: 18px;
       color: #64625c;
     }
 
@@ -109,6 +247,8 @@
       font-size: 24px;
       line-height: 1.4;
     }
+
+    /* SECTIONS */
 
     section {
       padding: 85px 0;
@@ -244,49 +384,133 @@
       margin-bottom: 30px;
     }
 
-    .button {
-      display: inline-block;
-      background: var(--charcoal);
-      color: var(--ivory);
-      padding: 15px 25px;
-      font-size: 12px;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-    }
+    /* FOOTER */
 
     footer {
       background: var(--deep);
       color: var(--ivory);
-      padding: 55px 0 30px;
+      padding: 60px 0 30px;
+    }
+
+    .footer-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 40px;
+      padding-bottom: 50px;
     }
 
     .footer-brand {
       font-family: "Playfair Display", serif;
-      font-size: 26px;
+      font-size: 28px;
       letter-spacing: 4px;
     }
 
-    .footer-tag {
+    .footer-tagline {
       color: #aaa8a1;
-      margin-top: 5px;
+      margin-top: 8px;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 25px;
+      color: #aaa8a1;
+      font-size: 13px;
     }
 
     .footer-bottom {
       border-top: 1px solid rgba(245,241,232,.12);
-      margin-top: 40px;
-      padding-top: 20px;
+      padding-top: 25px;
       color: #77756f;
       font-size: 12px;
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
     }
 
+    /* MOBILE */
+
     @media (max-width: 700px) {
+
+      html {
+        scroll-padding-top: 76px;
+      }
+
+      .nav {
+        padding: 12px 0;
+      }
+
+      .brand {
+        gap: 12px;
+      }
+
+      .brand-mark {
+        height: 34px;
+      }
+
+      .brand-name {
+        font-size: 21px;
+      }
+
+      .brand-tag {
+        font-size: 9.5px;
+        margin-top: 6px;
+      }
+
+      .nav-toggle {
+        display: block;
+        margin-right: -11px;
+      }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        padding: 8px 5% 24px;
+        background: var(--ivory);
+        border-bottom: 1px solid var(--border);
+        font-size: 17px;
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .nav-links a:not(.button) {
+        padding: 16px 0;
+        border-bottom: 1px solid var(--border);
+        background: none;
+      }
+
+      .nav-links a[aria-current="page"] {
+        color: var(--olive);
+      }
+
+      .nav-links .button {
+        margin-top: 20px;
+        text-align: center;
+        padding: 15px 25px;
+      }
 
       .hero {
         padding: 80px 0 65px;
       }
 
+      h1 {
+        letter-spacing: -1px;
+      }
+
       .paths {
         grid-template-columns: 1fr;
+      }
+
+      .path {
+        padding: 30px 26px;
+        min-height: 0;
       }
 
       .step {
@@ -297,16 +521,59 @@
       section {
         padding: 70px 0;
       }
+
+      .footer-top,
+      .footer-bottom {
+        flex-direction: column;
+      }
+
+      .footer-links {
+        flex-wrap: wrap;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      * { transition: none !important; }
     }
   </style>
 </head>
 
 <body>
 
-<header>
+<!-- HEADER -->
+
+<header class="site-header">
   <div class="container nav">
-    <a href="index.html" class="brand">HIMWARD</a>
-    <a href="index.html" class="back">← Back to home</a>
+
+    <a href="index.html" class="brand" aria-label="HIMWARD — Toward Jesus. Back to home">
+
+      <svg class="brand-mark" viewBox="0 0 392 463" fill="currentColor" aria-hidden="true">
+        <path d="M3 70 90 36V432L3 463Z"/>
+        <path d="M210 37 299 3V168L210 195Z"/>
+        <path d="M210 257 299 234V422L210 460Z"/>
+        <path d="M90 248 337 170 390 191 331 226 336 208 90 273Z"/>
+      </svg>
+
+      <span class="brand-text">
+        <span class="brand-name">HIMWARD</span>
+        <span class="brand-tag">Toward Jesus.</span>
+      </span>
+
+    </a>
+
+    <button class="nav-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="site-nav">
+      <span></span><span></span><span></span>
+    </button>
+
+    <nav class="nav-links" id="site-nav" aria-label="Main">
+      <a href="index.html">Home</a>
+      <a href="start-here.html" aria-current="page">Start Here</a>
+      <a href="index.html#explore">Explore</a>
+      <a href="index.html#about">About</a>
+      <a href="#resource" class="button button-sm">Free Guide</a>
+    </nav>
+
   </div>
 </header>
 
@@ -345,7 +612,7 @@
 
   <!-- FOUR PATHS -->
 
-  <section class="dark">
+  <section class="dark" id="paths">
 
     <div class="container">
 
@@ -365,82 +632,43 @@
       <div class="paths">
 
         <article class="path">
-
           <div class="number">01</div>
-
-          <h3>
-            I want to know Jesus.
-          </h3>
-
+          <h3>I want to know Jesus.</h3>
           <p>
             Start with the person at the center of Christianity.
             Explore who Jesus is, what He taught, and why His life matters.
           </p>
-
-          <span class="path-link">
-            Jesus — coming soon
-          </span>
-
+          <span class="path-link">Jesus — coming soon</span>
         </article>
 
-
         <article class="path">
-
           <div class="number">02</div>
-
-          <h3>
-            I want to understand the Gospel.
-          </h3>
-
+          <h3>I want to understand the Gospel.</h3>
           <p>
             What is the Gospel? Why do we need it? What do grace,
             faith, repentance and salvation actually mean?
           </p>
-
-          <span class="path-link">
-            The Gospel — coming soon
-          </span>
-
+          <span class="path-link">The Gospel — coming soon</span>
         </article>
 
-
         <article class="path">
-
           <div class="number">03</div>
-
-          <h3>
-            I have questions about Christianity.
-          </h3>
-
+          <h3>I have questions about Christianity.</h3>
           <p>
             Honest questions are part of the journey. Explore
             Christianity through Scripture without unnecessary complexity.
           </p>
-
-          <span class="path-link">
-            Explore questions — coming soon
-          </span>
-
+          <span class="path-link">Explore questions — coming soon</span>
         </article>
 
-
         <article class="path">
-
           <div class="number">04</div>
-
-          <h3>
-            I want to follow Jesus.
-          </h3>
-
+          <h3>I want to follow Jesus.</h3>
           <p>
             Learn about prayer, Scripture, obedience, forgiveness
             and what following Jesus can look like in everyday life.
           </p>
-
-          <span class="path-link">
-            Following Jesus — coming soon
-          </span>
-
+          <span class="path-link">Following Jesus — coming soon</span>
         </article>
 
       </div>
@@ -475,9 +703,7 @@
           <div class="step-number">01</div>
           <div>
             <h3>Know who Jesus is.</h3>
-            <p>
-              Begin with the life, words and person of Jesus Christ.
-            </p>
+            <p>Begin with the life, words and person of Jesus Christ.</p>
           </div>
         </div>
 
@@ -512,7 +738,7 @@
 
   <!-- FREE RESOURCE -->
 
-  <section class="resource">
+  <section class="resource" id="resource">
 
     <div class="container">
 
@@ -545,25 +771,61 @@
 </main>
 
 
+<!-- FOOTER -->
+
 <footer>
 
   <div class="container">
 
-    <div class="footer-brand">
-      HIMWARD
-    </div>
+    <div class="footer-top">
 
-    <div class="footer-tag">
-      Toward Jesus.
+      <div>
+        <div class="footer-brand">HIMWARD</div>
+        <div class="footer-tagline">Toward Jesus.</div>
+      </div>
+
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="start-here.html">Start Here</a>
+        <a href="index.html#explore">Explore</a>
+        <a href="index.html#about">About</a>
+      </div>
+
     </div>
 
     <div class="footer-bottom">
-      © 2026 HIMWARD. Simple. Biblical. Christ-centered.
+      <span>© 2026 HIMWARD. All rights reserved.</span>
+      <span>Simple. Biblical. Christ-centered.</span>
     </div>
 
   </div>
 
 </footer>
 
+<script>
+  (function () {
+    var toggle = document.querySelector('.nav-toggle');
+    var menu = document.getElementById('site-nav');
+
+    function setOpen(open) {
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      menu.classList.toggle('open', open);
+    }
+
+    toggle.addEventListener('click', function () {
+      setOpen(toggle.getAttribute('aria-expanded') !== 'true');
+    });
+
+    menu.addEventListener('click', function (e) {
+      if (e.target.tagName === 'A') setOpen(false);
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') setOpen(false);
+    });
+  })();
+</script>
+
 </body>
-    </html>
+  </html>
+  
